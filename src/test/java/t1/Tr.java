@@ -12,24 +12,24 @@ import java.util.List;
  */
 public class Tr extends AbstractFeedTest {
 
-    public Tr(Integer runNumber, String caseFileName) {
+    public Tr(Integer runNumber, List<String> caseFileName) {
         super(runNumber, caseFileName);
         vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.TR);
     }
 
     public TestData initializeTestData() {
-        System.out.println("loading TR test data...");
+        logger.info("loading TR test data...");
         return new TestData();
     }
 
     public List<File> createVendorFiles(TestData cs) {
-        System.out.println("creating TR vendorfile...");
+        logger.info("creating TR vendorfile...");
         return  Arrays.asList(new File("TR"));
     }
 
 
     public TestData getActualData(List<String> vendorIds) {
-        System.out.println("getting actual TR data...");
+        logger.info("getting actual TR data...");
         return new TestData();
     }
     @Test

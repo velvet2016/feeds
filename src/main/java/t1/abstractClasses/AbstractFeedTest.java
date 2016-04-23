@@ -14,7 +14,7 @@ import java.util.List;
  */
 public abstract class AbstractFeedTest extends AbstractTest implements FeedTestInterface {
 
-    public AbstractFeedTest(Integer runNumber, String caseFileName) {
+    public AbstractFeedTest(Integer runNumber, List<String> caseFileName) {
         super(runNumber, caseFileName);
     }
 
@@ -28,23 +28,23 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
     }
 
     public void uploadVendorFiles(List<File> files, VendorInfo vf) {
-        System.out.println("uploading vendor files...");
+        logger.info("uploading vendor files...");
         unixService.uploadFile();
     }
 
 
     public void verify(TestData exp, TestData act) {
-        System.out.println("verifying...");
+        logger.info("verifying...");
     }
 
     public void run(VendorInfo vf) {
-        System.out.println("running "+vf.getName()+"...");
-        System.out.println("waiting "+vf.getName()+"...");
+        logger.info("running "+vf.getName()+"...");
+        logger.info("waiting "+vf.getName()+"...");
 
     }
 
     protected void testLemTables() throws Exception {
-        System.out.println("runNumber " +runNumber);
+        logger.info("runNumber " +runNumber);
         TestData testData = initializeTestData();
         vendorIds = getVendorIds(testData, vendorInfo);
         List<File> vendorFiles = createVendorFiles(testData);
@@ -56,8 +56,8 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
 
 
     protected void testOraViews() throws Exception {
-        System.out.println("runNumber " +runNumber);
-        System.out.println("Orator check..");
+        logger.info("runNumber " +runNumber);
+        logger.info("Orator check..");
     }
 
 

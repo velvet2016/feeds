@@ -11,24 +11,24 @@ import java.util.List;
  * Created by linux on 23.04.16.
  */
 public class Bbg extends AbstractFeedTest {
-    public Bbg(Integer runNumber, String caseFileName) {
+    public Bbg(Integer runNumber, List<String> caseFileName) {
         super(runNumber, caseFileName);
         vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.BBG);
     }
 
     public TestData initializeTestData() {
-        System.out.println("loading BBG test data...");
+        logger.info("loading BBG test data...");
         return new TestData();
     }
 
     public List<File> createVendorFiles(TestData cs) {
-        System.out.println("creating BBG vendor file...");
+        logger.info("creating BBG vendor file...");
         fileService.writingFile();
         return  Arrays.asList(new File("BBG"));
     }
 
     public TestData getActualData(List<String> vendorIds) {
-        System.out.println("getting actual BBG data...");
+        logger.info("getting actual BBG data...");
         dbService.queryDb();
         return new TestData();
     }

@@ -3,13 +3,17 @@ package t1;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 /**
  * Created by linux on 23.04.16.
  */
 public class PropertyReader {
+
+    private static Logger logger=Logger.getLogger(PropertyReader.class.getName());
     private static Properties getProperties(String fileName) {
         Properties prop = new Properties();
 
@@ -43,7 +47,7 @@ public class PropertyReader {
 
     public static void getCommonConfig(){
         Properties properties = getProperties("common.properties");
-        System.out.println(properties);
+        logger.info(properties.toString());
     }
     public static List<RunInfo> getSuiteConfig(){
         List<RunInfo> runInfos = new ArrayList<RunInfo>();
@@ -54,7 +58,8 @@ public class PropertyReader {
             String[] item = typeAndCaseFile.split(":");
             String className = item[0];
             String caseFileName = item[1];
-            runInfos.add(new RunInfo(className, caseFileName));
+            List<String> casesFileNames = Arrays.asList(caseFileName.split(","));
+            runInfos.add(new RunInfo(className, casesFileNames));
         }
         return runInfos;
     }

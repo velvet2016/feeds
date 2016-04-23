@@ -1,22 +1,24 @@
 package t1;
 
+import java.util.List;
+
 /**
  * Created by linux on 23.04.16.
  */
 public class RunInfo {
     String className;
-    String casesFileName;
+    List<String> casesFileNames;
 
-    public RunInfo(String className, String casesFileName) {
+    public RunInfo(String className, List<String> casesFileNames) {
         this.className = className;
-        this.casesFileName = casesFileName;
+        this.casesFileNames = casesFileNames;
     }
 
     public String getClassName() {
         return className;
     }
 
-    public String getCasesFileName() {
-        return casesFileName;
+    public List<String> getCasesFileNames() {
+        return casesFileNames;
     }
 }

@@ -18,7 +18,7 @@ public class TestFactory {
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {
             String className = runInfo.getClassName();
-            String caseFileName = runInfo.getCasesFileName();
+            List<String> caseFileName = runInfo.getCasesFileNames();
             SimpleCheckerTestInterface testClassInstance = TestInstanceCreatorHelper.getTestInstance("t1."+className, runNumber, caseFileName);
             obs[runNumber++] = (testClassInstance instanceof FeedTestInterface) ? (FeedTestInterface) testClassInstance : testClassInstance;
         }
