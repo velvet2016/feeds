@@ -49,11 +49,11 @@ public class PropertyReader {
         List<RunInfo> runInfos = new ArrayList<RunInfo>();
         Properties properties = getProperties("bbgFullSuite/suite.properties");
         String runSequence = properties.getProperty("runSequence");
-        String[] typeAndCaseFile = runSequence.split(";");
-        for (String s : typeAndCaseFile) {
-            String[] split1 = s.split(":");
-            String className = split1[0];
-            String caseFileName = split1[1];
+        String[] typeAndCaseFileArray = runSequence.split(";");
+        for (String typeAndCaseFile : typeAndCaseFileArray) {
+            String[] item = typeAndCaseFile.split(":");
+            String className = item[0];
+            String caseFileName = item[1];
             runInfos.add(new RunInfo(className, caseFileName));
         }
         return runInfos;
