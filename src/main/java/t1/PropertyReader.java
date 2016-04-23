@@ -1,19 +1,22 @@
 package t1;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Logger;
+
 
 /**
  * Created by linux on 23.04.16.
  */
 public class PropertyReader {
 
-    private static Logger logger=Logger.getLogger(PropertyReader.class.getName());
+    private static Logger logger= LogManager.getLogger(PropertyReader.class.getName());
     private static Properties getProperties(String fileName) {
         Properties prop = new Properties();
 
