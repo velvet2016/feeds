@@ -2,9 +2,11 @@ package t1;
 
 import org.testng.annotations.Test;
 import t1.abstractClasses.AbstractFeedTest;
+import t1.actualDataInitializers.ActualDataInitializerTr;
+import t1.runners.RunnerTr;
+import t1.testDataInitializers.TestDataInitializerTr;
+import t1.vendorFilePreparators.VendorFilePreparatorTr;
 
-import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,26 +14,16 @@ import java.util.List;
  */
 public class Tr extends AbstractFeedTest {
 
-    public Tr(Integer runNumber, List<String> caseFileName) {
-        super(runNumber, caseFileName);
+    public Tr(Integer runNumber, List<String> caseFileNames, String tag) {
+        super(runNumber, caseFileNames, tag);
         vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.TR);
-    }
-
-    public TestData initializeTestData() {
-        logger.info("loading TR test data...");
-        return new TestData();
-    }
-
-    public List<File> createVendorFiles(TestData cs) {
-        logger.info("creating TR vendorfile...");
-        return  Arrays.asList(new File("TR"));
+        this.runner = new RunnerTr();
+        this.actualDataInitializer = new ActualDataInitializerTr();
+        this.testDataInitializer = new TestDataInitializerTr();
+        this.vendorFilePreparator = new VendorFilePreparatorTr();
     }
 
 
-    public TestData getActualData(List<String> vendorIds) {
-        logger.info("getting actual TR data...");
-        return new TestData();
-    }
     @Test
     public void test1() throws Exception {
         testLemTables();

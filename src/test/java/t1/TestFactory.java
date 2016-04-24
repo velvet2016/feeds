@@ -13,13 +13,15 @@ public class TestFactory {
     @Factory
     public Object[] factoryMethod()
     {
+        String pkgName = TestFactory.class.getPackage().getName();
         List<RunInfo> suiteConfig = PropertyReader.getSuiteConfig();
         Object[] obs = new Object[suiteConfig.size()];
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {
             String className = runInfo.getClassName();
             List<String> caseFileName = runInfo.getCasesFileNames();
-            SimpleCheckerTestInterface testClassInstance = TestInstanceCreatorHelper.getTestInstance("t1."+className, runNumber, caseFileName);
+            String tag = runInfo.getTag();
+            SimpleCheckerTestInterface testClassInstance = TestInstanceCreatorHelper.getTestInstance(pkgName+"."+className, runNumber, caseFileName, tag);
             obs[runNumber++] = (testClassInstance instanceof FeedTestInterface) ? (FeedTestInterface) testClassInstance : testClassInstance;
         }
 

@@ -8,10 +8,12 @@ import java.util.List;
 public class RunInfo {
     String className;
     List<String> casesFileNames;
+    String tag;
 
-    public RunInfo(String className, List<String> casesFileNames) {
+    public RunInfo(String className, List<String> casesFileNames, String tag) {
         this.className = className;
         this.casesFileNames = casesFileNames;
+        this.tag = tag;
     }
 
     public String getClassName() {
@@ -20,5 +22,9 @@ public class RunInfo {
 
     public List<String> getCasesFileNames() {
         return casesFileNames;
+    }
+
+    public String getTag() {
+        return tag;
     }
 }

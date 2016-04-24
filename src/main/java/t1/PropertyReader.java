@@ -59,10 +59,11 @@ public class PropertyReader {
         String[] typeAndCaseFileArray = runSequence.split(";");
         for (String typeAndCaseFile : typeAndCaseFileArray) {
             String[] item = typeAndCaseFile.split(":");
-            String className = item[0];
-            String caseFileName = item[1];
+            String tag = item[0];
+            String className = item[1];
+            String caseFileName = item[2];
             List<String> casesFileNames = Arrays.asList(caseFileName.split(","));
-            runInfos.add(new RunInfo(className, casesFileNames));
+            runInfos.add(new RunInfo(className, casesFileNames, tag));
         }
         return runInfos;
     }
