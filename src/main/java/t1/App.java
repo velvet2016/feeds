@@ -21,7 +21,7 @@ public class App
         System.out.println(file);
 
         SuiteParser suiteParser = new SuiteParser();
-        List<RunInfo> ri = suiteParser.parse("bbgFullSuite/suite.xml");
+        List<RunInfo> ri = suiteParser.parse("suites/suite1.xml");
         System.out.println(ri);
 
 

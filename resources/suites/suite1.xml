@@ -23,7 +23,7 @@
         <caseFileName>bbgVendorCase2.txt</caseFileName>
         <caseFileName>bbgVendorCase2.txt</caseFileName>
     </runItem>
-    <runItem className="Bbg" tag="bbg1">
+    <runItem className="Bbg" tag="bbg2">
         <caseFileName>bbgVendorCase1.txt</caseFileName>
         <caseFileName>bbgVendorCase2.txt</caseFileName>
         <caseFileName>bbgVendorCase2.txt</caseFileName>

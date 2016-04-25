@@ -14,7 +14,7 @@ public class TestFactory {
     public Object[] factoryMethod()
     {
         String pkgName = TestFactory.class.getPackage().getName();
-        List<RunInfo> suiteConfig = new SuiteParser().parse("bbgFullSuite/suite.xml");
+        List<RunInfo> suiteConfig = new SuiteParser().parse("suites/suite1.xml");
         Object[] obs = new Object[suiteConfig.size()];
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {

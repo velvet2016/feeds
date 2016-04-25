@@ -3,7 +3,6 @@ package t1;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class PropertyReader {
     }
     public static List<RunInfo> getSuiteConfig(){
         List<RunInfo> runInfos = new ArrayList<RunInfo>();
-        Properties properties = getProperties("bbgFullSuite/suite.properties");
+        Properties properties = getProperties("suites/suite.properties");
         String runSequence = properties.getProperty("runSequence");
         String[] typeAndCaseFileArray = runSequence.split(";");
         for (String typeAndCaseFile : typeAndCaseFileArray) {
