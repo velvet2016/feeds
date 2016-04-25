@@ -8,8 +8,8 @@ import java.net.URL;
  */
 public class TextReader {
 
-    public File getFile(String path) {
-        URL url = getClass().getResource(path);
+    public  File getFile(String path) {
+        URL url = TextReader.class.getClassLoader().getResource(path);
         return new File(url.getPath());
     }
 }

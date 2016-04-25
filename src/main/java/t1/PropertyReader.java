@@ -3,6 +3,7 @@ package t1;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,14 +20,12 @@ public class PropertyReader {
     private static Logger logger= LogManager.getLogger(PropertyReader.class.getName());
     private static Properties getProperties(String fileName) {
         Properties prop = new Properties();
-
-        try(InputStream input = PropertyReader.class.getClassLoader().getResourceAsStream(fileName)){
-            if(input==null){
-                throw new IOException();
-            }
+        InputStream input = CommonMethods.getInputStream(fileName);
+        try {
             prop.load(input);
-        } catch (IOException ex) {
-            throw new RuntimeException("can not read property file:" + fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getCause());
         }
         return prop;
     }

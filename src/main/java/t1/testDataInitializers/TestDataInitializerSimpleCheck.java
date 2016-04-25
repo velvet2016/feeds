@@ -16,9 +16,5 @@ public  class TestDataInitializerSimpleCheck extends TestDataInitializer {
         return null;
     }
 
-    @Override
-    public List<TestDataEntry> getExpectedData(File file) {
-        logger.info("get Expected Data for SimpleCheck...");
-        return null;
-    }
+
 }

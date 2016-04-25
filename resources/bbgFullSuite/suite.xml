@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<suite>
+    <runItem className="Tr" tag="tr1">
+        <caseFileName>trVendorCase1.txt</caseFileName>
+        <caseFileName>trVendorCase2.txt</caseFileName>
+        <caseFileName>trVendorCase2.txt</caseFileName>
+    </runItem>
+    <runItem className="SimpleCheck" tag="sc1">
+        <caseFileName>scCase1.txt</caseFileName>
+        <caseFileName>scCase2.txt</caseFileName>
+    </runItem>
+    <runItem className="SimpleCheck" tag="sc2">
+        <caseFileName>scCase1.txt</caseFileName>
+        <caseFileName>scCase2.txt</caseFileName>
+    </runItem>
+    <runItem className="Tr" tag="tr1">
+        <caseFileName>trVendorCase1.txt</caseFileName>
+        <caseFileName>trVendorCase2.txt</caseFileName>
+        <caseFileName>trVendorCase2.txt</caseFileName>
+    </runItem>
+    <runItem className="Bbg" tag="bbg1">
+        <caseFileName>bbgVendorCase1.txt</caseFileName>
+        <caseFileName>bbgVendorCase2.txt</caseFileName>
+        <caseFileName>bbgVendorCase2.txt</caseFileName>
+    </runItem>
+    <runItem className="Bbg" tag="bbg1">
+        <caseFileName>bbgVendorCase1.txt</caseFileName>
+        <caseFileName>bbgVendorCase2.txt</caseFileName>
+        <caseFileName>bbgVendorCase2.txt</caseFileName>
+    </runItem>
+</suite>

@@ -15,6 +15,7 @@ import t1.services.UnixService;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -34,6 +35,10 @@ public abstract class AbstractTest implements SimpleCheckerTestInterface {
 
     }
 
+    public int gerRunNumber() {
+        return runNumber;
+    }
+
     protected Logger logger;
     protected DbService dbService;
     protected FileService fileService;
@@ -43,6 +48,7 @@ public abstract class AbstractTest implements SimpleCheckerTestInterface {
     protected TestDataInitializerInterface testDataInitializer;
     protected ActualDataInitializerInterface actualDataInitializer;
     protected File expectedCaseFie;
+    List<DataProviderInput> dataForDataProvider;
 
 
     protected List<String> caseFileNames;
@@ -55,10 +61,19 @@ public abstract class AbstractTest implements SimpleCheckerTestInterface {
     public List<DataProviderInput> getDataForDataProvider(List<TestDataEntry> exp, List<TestDataEntry> act) {
             return new ArrayList<DataProviderInput>();
     }
-    protected void testLemTables() throws Exception {
-        logger.info("runNumber " +runNumber);
+    protected void setUp() throws Exception {
+        logger.info("\n"+this.getClass()+" setUp runNumber " +runNumber);
         List<TestDataEntry> expected = testDataInitializer.getExpectedData(expectedCaseFie);
         List<TestDataEntry> actual = actualDataInitializer.getActualData(this.vendorIds);
-        getDataForDataProvider(expected,actual);
+        dataForDataProvider = getDataForDataProvider(expected,actual);
+    }
+    protected void check(){
+        logger.info(this.getClass()+" setUp runNumber " +runNumber);
+    }
+    protected Object[][] getDataProvider(){
+        return new Object[][]{
+                {1,1},
+                {1,1}
+        };
     }
 }

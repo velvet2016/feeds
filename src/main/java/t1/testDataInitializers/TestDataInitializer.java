@@ -19,6 +19,7 @@ public abstract class TestDataInitializer extends LoggedClass implements TestDat
 
     @Override
     public List<TestDataEntry> getExpectedData(File file) {
+        logger.info(this.getClass()+" get Expected Data...");
         return null;
     }
 }

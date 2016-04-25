@@ -15,7 +15,7 @@ public abstract class ActualDataInitializer extends LoggedClass implements Actua
 
     @Override
     public List<TestDataEntry> getActualData(List<String> vendorIds) {
-
+        logger.info(this.getClass()+" get Actual Data...");
         return null;
     }
 }

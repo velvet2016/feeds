@@ -31,6 +31,7 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
 
 
 
+
     public List<String> getVendorIds(List<TestDataEntry> testData, VendorInfo vendorInfo) {
         return Arrays.asList("123");
     }
@@ -41,8 +42,8 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
     }
 
 
-    protected void testLemTables() throws Exception {
-        logger.info("runNumber " +runNumber);
+    protected void setUp() throws Exception {
+        logger.info("\n"+this.getClass()+" setUp runNumber " +runNumber);
         VendorData vendorData = testDataInitializer.getVendorData(vendorDataCaseFie);
         Map<File, String> vendorFileToPathMap = vendorFilePreparator.prepareVendorFiles(vendorInfo, vendorData);
         List<TestDataEntry> expected = testDataInitializer.getExpectedData(expectedCaseFie);
@@ -56,8 +57,8 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
 
 
     protected void testOraViews() throws Exception {
-        logger.info("runNumber " +runNumber);
-        logger.info("Orator check..");
+        logger.info(this.getClass()+" testOraViews runNumber " +runNumber);
+       // logger.info("Orator check..");
     }
 
 

@@ -1,6 +1,6 @@
 package t1;
 
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import t1.abstractClasses.AbstractFeedTest;
 import t1.actualDataInitializers.ActualDataInitializerBbg;
 import t1.runners.RunnerTr;
@@ -10,9 +10,12 @@ import t1.vendorFilePreparators.VendorFilePreparatorBbg;
 
 import java.util.List;
 
+import static org.testng.Assert.assertEquals;
+
 /**
  * Created by linux on 23.04.16.
  */
+@Listeners(TestClassesSorter.class)
 public class Bbg extends AbstractFeedTest {
     public Bbg(Integer runNumber, List<String> caseFileName, String tag) {
         super(runNumber, caseFileName, tag);
@@ -22,16 +25,19 @@ public class Bbg extends AbstractFeedTest {
         this.testDataInitializer = new TestDataInitializerBbg();
         this.vendorFilePreparator = new VendorFilePreparatorBbg();
     }
-
-
-
-    @Test
-    public void test1() throws Exception {
-        testLemTables();
+    @BeforeClass
+    public void preparation() throws Exception {
+        setUp();
     }
 
-    @Test(dependsOnMethods = "test1")
-    public void test2() throws Exception {
-        testOraViews();
+    @DataProvider
+    public Object[][] getDataForTest(){
+        return getDataProvider();
+    }
+
+    @Test(dataProvider = "getDataForTest")
+    public void test(int exp, int act) throws Exception {
+        logger.info(this.getClass()+" checking...");
+        assertEquals(act,exp);
     }
 }

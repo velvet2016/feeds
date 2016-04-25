@@ -13,4 +13,5 @@ import java.util.List;
 public interface SimpleCheckerTestInterface  {
     public List<DataProviderInput> getDataForDataProvider(List<TestDataEntry> exp, List<TestDataEntry> act);
     public List<String> getVendorIds(List<TestDataEntry> testData, VendorInfo vendorInfo);
+    public int gerRunNumber();
 }

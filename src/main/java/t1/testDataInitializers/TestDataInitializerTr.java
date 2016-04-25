@@ -18,9 +18,5 @@ public  class TestDataInitializerTr extends TestDataInitializer {
         return null;
     }
 
-    @Override
-    public List<TestDataEntry> getExpectedData(File file) {
-        logger.info("get Expected Data for TR...");
-        return null;
-    }
+
 }

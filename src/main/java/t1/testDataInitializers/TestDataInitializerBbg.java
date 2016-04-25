@@ -18,9 +18,5 @@ public  class TestDataInitializerBbg extends TestDataInitializer {
         return null;
     }
 
-    @Override
-    public List<TestDataEntry> getExpectedData(File file) {
-        logger.info("get Expected Data for BBG...");
-        return null;
-    }
+
 }
