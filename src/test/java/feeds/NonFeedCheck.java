@@ -14,8 +14,8 @@ import static org.testng.Assert.assertEquals;
  * Created by linux on 23.04.16.
  */
 @Listeners(TestClassesSorter.class)
-public  class SimpleCheck extends AbstractTest {
-    public SimpleCheck(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
+public  class NonFeedCheck extends AbstractTest {
+    public NonFeedCheck(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles);
         this.actualDataInitializer = new ActualDataInitializerSimpleCheck();
         this.testDataInitializer = new TestDataInitializerSimpleCheck();

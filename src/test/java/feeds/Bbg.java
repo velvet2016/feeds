@@ -1,9 +1,9 @@
 package feeds;
 
+import feeds.runners.RunnerBbg;
 import org.testng.annotations.*;
 import feeds.abstractClasses.AbstractFeedTest;
 import feeds.actualDataInitializers.ActualDataInitializerBbg;
-import feeds.runners.RunnerTr;
 import feeds.testDataInitializers.TestDataInitializerBbg;
 import feeds.vendorFilePreparators.VendorFilePreparatorBbg;
 
@@ -20,7 +20,7 @@ public class Bbg extends AbstractFeedTest {
     public Bbg(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles);
         this.vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.BBG);
-        this.runner = new RunnerTr();
+        this.runner = new RunnerBbg();
         this.actualDataInitializer = new ActualDataInitializerBbg();
         this.testDataInitializer = new TestDataInitializerBbg();
         this.vendorFilePreparator = new VendorFilePreparatorBbg();

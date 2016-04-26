@@ -1,40 +1,22 @@
 <?xml version="1.0"?>
 <suite>
-    <runItem className="feeds.Tr" tag="tr1">
-        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
-        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
-        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
-        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-    </runItem>
-    <runItem className="feeds.SimpleCheck" tag="sc1">
-        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
-        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
-        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
-        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-    </runItem>
-    <runItem className="feeds.SimpleCheck" tag="sc2">
-        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
-        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
-        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
-        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-    </runItem>
-    <runItem className="feeds.Tr" tag="tr1">
-        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
-        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
-        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
-        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-    </runItem>
     <runItem className="feeds.Bbg" tag="bbg1">
-        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
-        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
-        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
-        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-    </runItem>
-    <runItem className="feeds.Bbg" tag="bbg2">
         <vendorDataFile type="xref">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="entity">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="market">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="smth">trVendorCase1.txt</vendorDataFile>
+        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
+        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
+    </runItem>
+    <runItem className="feeds.Tr" tag="tr1">
+        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
+        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
+        <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
+        <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
+    </runItem>
+    <runItem className="feeds.NonFeedCheck" tag="sc1">
+        <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
+        <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
         <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
         <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
     </runItem>
