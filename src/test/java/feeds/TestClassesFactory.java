@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by linux on 23.04.16.
  */
-public class TestInstanceCreatorHelper {
+public class TestClassesFactory {
     public static SimpleCheckerTestInterface getTestInstance(
             String className,
             int runNumber,
