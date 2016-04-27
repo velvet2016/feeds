@@ -1,5 +1,6 @@
 package feeds;
 
+import feeds.enums.VendorProfile;
 import org.testng.annotations.*;
 import feeds.abstractClasses.AbstractFeedTest;
 import feeds.actualDataInitializers.ActualDataInitializerTr;
@@ -19,7 +20,7 @@ public class Tr extends AbstractFeedTest {
 
     public Tr(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
-        vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.TR);
+        vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.TR, env);
         this.runner = new RunnerTr();
         this.actualDataInitializer = new ActualDataInitializerTr();
         this.testDataInitializer = new TestDataInitializerTr();

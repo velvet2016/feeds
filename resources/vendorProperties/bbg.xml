@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<vendorInfo type="BBG">
+    <fileType path="/sjksjk/%env%/dlkd">xref</fileType>
+    <fileType path="/sjksjk/%env%/dlkd">entity</fileType>
+    <staticDataCode>BBCP</staticDataCode>
+    <alacraMappingName>BLOOMBERG</alacraMappingName>
+    <alacraMappingCode>472</alacraMappingCode>
+</vendorInfo>

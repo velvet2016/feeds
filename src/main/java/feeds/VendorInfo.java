@@ -1,53 +1,36 @@
 package feeds;
 
+import java.util.Map;
+
 /**
  * Created by linux on 23.04.16.
  */
 public class VendorInfo {
-
     String staticDataCode;
-    String unixPath1;
-    String unixPath2;
-    String unixPath3;
-    String name;
+    String  alacraMappingCode;
+    String alacraMappingName;
+    Map<String, String> fileTypesToUnixPaths;
+
+    public VendorInfo(String staticDataCode, String alacraMappingCode, String alacraMappingName, Map<String, String> fileTypesToUnixPaths) {
+        this.staticDataCode = staticDataCode;
+        this.alacraMappingCode = alacraMappingCode;
+        this.alacraMappingName = alacraMappingName;
+        this.fileTypesToUnixPaths = fileTypesToUnixPaths;
+    }
 
     public String getStaticDataCode() {
         return staticDataCode;
     }
 
-    public void setStaticDataCode(String staticDataCode) {
-        this.staticDataCode = staticDataCode;
+    public String getAlacraMappingCode() {
+        return alacraMappingCode;
     }
 
-    public String getUnixPath1() {
-        return unixPath1;
+    public String getAlacraMappingName() {
+        return alacraMappingName;
     }
 
-    public void setUnixPath1(String unixPath1) {
-        this.unixPath1 = unixPath1;
-    }
-
-    public String getUnixPath2() {
-        return unixPath2;
-    }
-
-    public void setUnixPath2(String unixPath2) {
-        this.unixPath2 = unixPath2;
-    }
-
-    public String getUnixPath3() {
-        return unixPath3;
-    }
-
-    public void setUnixPath3(String unixPath3) {
-        this.unixPath3 = unixPath3;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Map<String, String> getFileTypesToUnixPaths() {
+        return fileTypesToUnixPaths;
     }
 }

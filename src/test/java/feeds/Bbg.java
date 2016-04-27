@@ -1,5 +1,6 @@
 package feeds;
 
+import feeds.enums.VendorProfile;
 import feeds.runners.RunnerBbg;
 import org.testng.annotations.*;
 import feeds.abstractClasses.AbstractFeedTest;
@@ -23,7 +24,7 @@ public class Bbg extends AbstractFeedTest {
                Map<String, String> expectedDataFiles,
                PublishingInfo publishingInfo) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
-        this.vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.BBG);
+        this.vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.BBG, env);
         this.runner = new RunnerBbg();
         this.actualDataInitializer = new ActualDataInitializerBbg();
         this.testDataInitializer = new TestDataInitializerBbg();

@@ -24,17 +24,7 @@ public class SuiteParser implements SuiteParserInterface {
     @Override
     public List<RunInfo> parse(String path) {
         List<RunInfo> runInfos = new ArrayList<>();
-        InputStream inputStream = CommonMethods.getInputStream(path);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
-        Document doc;
-        try {
-            dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(inputStream);
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e.getCause());
-        }
+        Document doc = CommonMethods.getDocumentFromXml(path);
         NodeList nList = doc.getElementsByTagName("runItem");
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Element eElement = (Element) nList.item(temp);

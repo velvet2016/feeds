@@ -27,26 +27,10 @@ public class PropertyReader extends LoggedClass {
         return prop;
     }
 
-    public static VendorInfo getVendorInfoFromPropertyFile(String fileName) {
-        VendorInfo vendorInfo = new VendorInfo();
 
-        Properties prop = getProperties(fileName);
-
-        vendorInfo.setStaticDataCode(prop.getProperty("staticDataCode"));
-        vendorInfo.setName(prop.getProperty("alacra.name"));
-        vendorInfo.setUnixPath1(prop.getProperty("unixPath1"));
-        vendorInfo.setUnixPath2(prop.getProperty("unixPath2"));
-        vendorInfo.setUnixPath3(prop.getProperty("unixPath3"));
-        return vendorInfo;
-    }
-
-    public static VendorInfo getVendorInfoFromPropertyFile(Profile vendor) {
-       return getVendorInfoFromPropertyFile(vendor.getPropertyFileName());
-    }
-
-    public static void getCommonConfig(){
+    public static Properties getCommonConfig(){
         Properties properties = getProperties("common.properties");
-        logger.info(properties.toString());
+        return properties;
     }
 
 

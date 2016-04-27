@@ -21,6 +21,7 @@ import java.util.Map;
  */
 public abstract class AbstractTest extends LoggedClass implements SimpleCheckerTestInterface {
     public AbstractTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
+        this.env=PropertyReader.getCommonConfig().getProperty("env");
         this.runNumber = runNumber;
         this.vendorDataFiles = vendorDataFiles;
         this.expectedDataFiles = expectedDataFiles;
@@ -30,6 +31,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
         this.idStorageService = IdStorageService.getInstance();
         this.tag = tag;
         this.publishingInfo = publishingInfo;
+
 
     }
 
@@ -46,14 +48,15 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
     protected TestDataInitializerInterface testDataInitializer;
     protected ActualDataInitializerInterface actualDataInitializer;
     protected File expectedCaseFie;
-    List<DataProviderInput> dataForDataProvider;
-    PublishingInfo publishingInfo;
+    protected List<DataProviderInput> dataForDataProvider;
+    protected PublishingInfo publishingInfo;
 
 
     protected Map<String, String> vendorDataFiles;
     protected Map<String, String> expectedDataFiles;
     protected int runNumber;
     protected String tag;
+    protected String env;
 
 
 
