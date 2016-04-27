@@ -41,6 +41,7 @@ public abstract class AbstractFeedTest extends AbstractTest implements FeedTestI
 
 
     protected void setUp() throws Exception {
+        System.out.println("\n");
         logger.info(this.getClass()+" setUp runNumber " +runNumber);
         Map<String,VendorData> vendorData = testDataInitializer.getVendorData(vendorDataFiles);
         Map<File, String> vendorFileToPathMap = vendorFilePreparator.prepareVendorFiles(vendorInfo, vendorData);

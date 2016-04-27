@@ -19,8 +19,18 @@ public class TestClassesFactory {
             PublishingInfo publishingInfo
     ){
         try {
-            Constructor<?> constructor = Class.forName(className).getConstructor(Integer.class, String.class, Map.class, Map.class, PublishingInfo.class);
-            return (SimpleCheckerTestInterface)constructor.newInstance(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
+            Constructor<?> constructor = Class.forName(className).getConstructor(
+                    Integer.class,
+                    String.class,
+                    Map.class,
+                    Map.class,
+                    PublishingInfo.class);
+            return (SimpleCheckerTestInterface)constructor.newInstance(
+                    runNumber,
+                    tag,
+                    vendorDataFiles,
+                    expectedDataFiles,
+                    publishingInfo);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Can not instantiate object for class: " + className);

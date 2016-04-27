@@ -65,6 +65,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
             return new ArrayList<DataProviderInput>();
     }
     protected void setUp() throws Exception {
+        System.out.println("\n");
         logger.info(this.getClass()+" setUp runNumber " +runNumber);
         List<TestDataEntry> expected = testDataInitializer.getExpectedData(expectedCaseFie);
         List<TestDataEntry> actual = actualDataInitializer.getActualData(this.vendorIds);
