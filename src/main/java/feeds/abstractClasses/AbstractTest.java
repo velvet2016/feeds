@@ -20,7 +20,7 @@ import java.util.Map;
  * Created by linux on 23.04.16.
  */
 public abstract class AbstractTest extends LoggedClass implements SimpleCheckerTestInterface {
-    public AbstractTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
+    public AbstractTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
         this.runNumber = runNumber;
         this.vendorDataFiles = vendorDataFiles;
         this.expectedDataFiles = expectedDataFiles;
@@ -29,6 +29,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
         this.unixService = UnixService.getInstance();
         this.idStorageService = IdStorageService.getInstance();
         this.tag = tag;
+        this.publishingInfo = publishingInfo;
 
     }
 
@@ -46,6 +47,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
     protected ActualDataInitializerInterface actualDataInitializer;
     protected File expectedCaseFie;
     List<DataProviderInput> dataForDataProvider;
+    PublishingInfo publishingInfo;
 
 
     protected Map<String, String> vendorDataFiles;

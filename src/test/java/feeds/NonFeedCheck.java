@@ -15,8 +15,8 @@ import static org.testng.Assert.assertEquals;
  */
 @Listeners(TestClassesSorter.class)
 public  class NonFeedCheck extends AbstractTest {
-    public NonFeedCheck(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
-        super(runNumber, tag, vendorDataFiles, expectedDataFiles);
+    public NonFeedCheck(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
+        super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
         this.actualDataInitializer = new ActualDataInitializerSimpleCheck();
         this.testDataInitializer = new TestDataInitializerSimpleCheck();
     }

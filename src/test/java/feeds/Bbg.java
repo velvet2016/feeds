@@ -17,8 +17,12 @@ import static org.testng.Assert.assertEquals;
  */
 @Listeners(TestClassesSorter.class)
 public class Bbg extends AbstractFeedTest {
-    public Bbg(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
-        super(runNumber, tag, vendorDataFiles, expectedDataFiles);
+    public Bbg(Integer runNumber,
+               String tag,
+               Map<String, String> vendorDataFiles,
+               Map<String, String> expectedDataFiles,
+               PublishingInfo publishingInfo) {
+        super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
         this.vendorInfo = PropertyReader.getVendorInfoFromPropertyFile(Profile.BBG);
         this.runner = new RunnerBbg();
         this.actualDataInitializer = new ActualDataInitializerBbg();

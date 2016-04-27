@@ -1,7 +1,9 @@
 package feeds;
 
+import feeds.enums.PublishingType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import feeds.interfaces.SuiteParserInterface;
@@ -40,10 +42,27 @@ public class SuiteParser implements SuiteParserInterface {
                     eElement.getAttribute("className"),
                     getMapTypeToValue(eElement,"vendorDataFile"),
                     getMapTypeToValue(eElement,"expectedDataFile"),
-                    eElement.getAttribute("tag")
+                    eElement.getAttribute("tag"),
+                    new PublishingInfo(getIsPublishingNeeded(eElement),getPublishingType(eElement))
+
             ));
         }
         return runInfos;
+    }
+
+    private PublishingType getPublishingType(Element eElement) {
+        Node node = eElement.getElementsByTagName("isPublishingNeeded").item(0);
+        if (node == null) {
+            return null;
+        }
+        String type = ((Element) node).getAttribute("type");
+        return type == null ? null : PublishingType.valueOf(type.toUpperCase());
+
+    }
+
+    private boolean getIsPublishingNeeded(Element eElement) {
+        Node node = eElement.getElementsByTagName("isPublishingNeeded").item(0);
+        return node == null ? false : Boolean.parseBoolean(node.getTextContent());
     }
 
     private HashMap<String, String> getMapTypeToValue(Element eElement, String tagName) {

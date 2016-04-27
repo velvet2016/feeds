@@ -16,8 +16,8 @@ import java.util.Map;
  */
 public abstract class AbstractFeedTest extends AbstractTest implements FeedTestInterface {
 
-    public AbstractFeedTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles) {
-        super(runNumber, tag, vendorDataFiles, expectedDataFiles);
+    public AbstractFeedTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
+        super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
     }
 
     protected VendorInfo vendorInfo;

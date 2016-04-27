@@ -7,26 +7,41 @@ import java.util.Map;
  */
 public class RunInfo {
     String className;
-    Map<String,String> vendorDataFiles;
-    Map<String,String> expectedDataFiles;
+    Map<String,String> vendorFileTypesToFiles;
+    Map<String,String> expectedFileTypesToFiles;
     String tag;
+    PublishingInfo publishingInfo;
 
-    public RunInfo(String className, Map<String,String> vendorDataFiles, Map<String,String> expectedDataFiles, String tag) {
+    public RunInfo(String className,
+                   Map<String, String> vendorFileTypesToFiles,
+                   Map<String, String> expectedFileTypesToFiles,
+                   String tag,
+                   PublishingInfo publishingInfo) {
         this.className = className;
-        this.vendorDataFiles  = vendorDataFiles;
-        this.expectedDataFiles  = expectedDataFiles;
+        this.vendorFileTypesToFiles = vendorFileTypesToFiles;
+        this.expectedFileTypesToFiles = expectedFileTypesToFiles;
         this.tag = tag;
+        this.publishingInfo = publishingInfo;
     }
+
 
     public String getClassName() {
         return className;
     }
 
-    public Map<String,String> getVendorDataFiles() {
-        return  vendorDataFiles;
+    public Map<String,String> getVendorFileTypesToFiles() {
+        return vendorFileTypesToFiles;
     }
 
     public String getTag() {
         return tag;
+    }
+
+    public Map<String, String> getExpectedFileTypesToFiles() {
+        return expectedFileTypesToFiles;
+    }
+
+    public PublishingInfo getPublishingInfo() {
+        return publishingInfo;
     }
 }
