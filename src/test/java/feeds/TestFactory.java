@@ -13,7 +13,8 @@ public class TestFactory {
     @Factory
     public Object[] factoryMethod()
     {
-        List<RunInfo> suiteConfig = new SuiteParser().parse("suites/suite1.xml");
+        String suite = PropertyReader.getCommonConfig().getProperty("suite");
+        List<RunInfo> suiteConfig = new SuiteParser().parse(suite);
         Object[] obs = new Object[suiteConfig.size()];
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {
