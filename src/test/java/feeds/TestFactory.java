@@ -24,7 +24,7 @@ public class TestFactory {
                     runInfo.getTag(),
                     runInfo.getVendorFileTypesToFiles(),
                     runInfo.getExpectedFileTypesToFiles(),
-                    runInfo.getPublishingInfo()
+                    runInfo.isPublishingByDirectUpdateNeeded()
                     );
             obs[runNumber++] = (testClassInstance instanceof FeedTestInterface) ? (FeedTestInterface) testClassInstance : testClassInstance;
         }

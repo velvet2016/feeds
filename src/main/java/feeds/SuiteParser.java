@@ -33,26 +33,21 @@ public class SuiteParser implements SuiteParserInterface {
                     getMapTypeToValue(eElement,"vendorDataFile"),
                     getMapTypeToValue(eElement,"expectedDataFile"),
                     eElement.getAttribute("tag"),
-                    new PublishingInfo(getIsPublishingNeeded(eElement),getPublishingType(eElement))
+                    getPublishing(eElement)
 
             ));
         }
         return runInfos;
     }
 
-    private PublishingType getPublishingType(Element eElement) {
-        Node node = eElement.getElementsByTagName("isPublishingNeeded").item(0);
+    private boolean getPublishing(Element eElement) {
+        Node node = eElement.getElementsByTagName("isPublishingByDirectUpdateNeeded").item(0);
         if (node == null) {
-            return null;
+            return false;
         }
-        String type = ((Element) node).getAttribute("type");
-        return type == null ? null : PublishingType.valueOf(type.toUpperCase());
+        String type = ((Element) node).getTextContent();
+        return type == null ? false : Boolean.parseBoolean(type.toUpperCase());
 
-    }
-
-    private boolean getIsPublishingNeeded(Element eElement) {
-        Node node = eElement.getElementsByTagName("isPublishingNeeded").item(0);
-        return node == null ? false : Boolean.parseBoolean(node.getTextContent());
     }
 
     private HashMap<String, String> getMapTypeToValue(Element eElement, String tagName) {

@@ -6,22 +6,22 @@ import java.util.Map;
  * Created by linux on 23.04.16.
  */
 public class RunInfo {
-    String className;
-    Map<String,String> vendorFileTypesToFiles;
-    Map<String,String> expectedFileTypesToFiles;
-    String tag;
-    PublishingInfo publishingInfo;
+    private String className;
+    private Map<String,String> vendorFileTypesToFiles;
+    private Map<String,String> expectedFileTypesToFiles;
+    private String tag;
+    private boolean isPublishingByDirectUpdateNeeded;
 
     public RunInfo(String className,
                    Map<String, String> vendorFileTypesToFiles,
                    Map<String, String> expectedFileTypesToFiles,
                    String tag,
-                   PublishingInfo publishingInfo) {
+                   boolean isPublishingByDirectUpdateNeeded) {
         this.className = className;
         this.vendorFileTypesToFiles = vendorFileTypesToFiles;
         this.expectedFileTypesToFiles = expectedFileTypesToFiles;
         this.tag = tag;
-        this.publishingInfo = publishingInfo;
+        this.isPublishingByDirectUpdateNeeded = isPublishingByDirectUpdateNeeded;
     }
 
 
@@ -41,7 +41,7 @@ public class RunInfo {
         return expectedFileTypesToFiles;
     }
 
-    public PublishingInfo getPublishingInfo() {
-        return publishingInfo;
+    public boolean isPublishingByDirectUpdateNeeded() {
+        return isPublishingByDirectUpdateNeeded;
     }
 }

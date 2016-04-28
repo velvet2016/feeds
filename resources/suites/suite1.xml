@@ -7,14 +7,14 @@
         <vendorDataFile type="smth">trVendorCase1.txt</vendorDataFile>
         <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
         <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-        <isPublishingNeeded type="update">true</isPublishingNeeded>
+        <publishByDirectUpdate>true</publishByDirectUpdate>
     </runItem>
     <runItem className="feeds.Tr" tag="tr1">
         <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
         <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
         <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
-        <isPublishingNeeded type="alacra">true</isPublishingNeeded>
+        <publishByDirectUpdate type="alacra">true</publishByDirectUpdate>
     </runItem>
     <runItem className="feeds.NonFeedCheck" tag="sc1">
         <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>

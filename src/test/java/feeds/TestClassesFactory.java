@@ -16,7 +16,7 @@ public class TestClassesFactory {
             String tag,
             Map<String, String> vendorDataFiles,
             Map<String, String> expectedDataFiles,
-            PublishingInfo publishingInfo
+            Boolean isPublishingByDirectUpdateNeeded
     ){
         try {
             Constructor<?> constructor = Class.forName(className).getConstructor(
@@ -24,13 +24,13 @@ public class TestClassesFactory {
                     String.class,
                     Map.class,
                     Map.class,
-                    PublishingInfo.class);
+                    Boolean.class);
             return (SimpleCheckerTestInterface)constructor.newInstance(
                     runNumber,
                     tag,
                     vendorDataFiles,
                     expectedDataFiles,
-                    publishingInfo);
+                    isPublishingByDirectUpdateNeeded);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("Can not instantiate object for class: " + className);

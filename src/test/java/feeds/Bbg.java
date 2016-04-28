@@ -22,8 +22,8 @@ public class Bbg extends AbstractFeedTest {
                String tag,
                Map<String, String> vendorDataFiles,
                Map<String, String> expectedDataFiles,
-               PublishingInfo publishingInfo) {
-        super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
+               Boolean isPublishingByDirectUpdateNeeded) {
+        super(runNumber, tag, vendorDataFiles, expectedDataFiles, isPublishingByDirectUpdateNeeded);
         this.vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.BBG, env);
         this.runner = new RunnerBbg();
         this.actualDataInitializer = new ActualDataInitializerBbg();

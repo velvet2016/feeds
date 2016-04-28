@@ -18,8 +18,12 @@ import static org.testng.Assert.assertEquals;
 @Listeners(TestClassesSorter.class)
 public class Tr extends AbstractFeedTest {
 
-    public Tr(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, PublishingInfo publishingInfo) {
-        super(runNumber, tag, vendorDataFiles, expectedDataFiles, publishingInfo);
+    public Tr(Integer runNumber,
+              String tag,
+              Map<String,String> vendorDataFiles,
+              Map<String, String> expectedDataFiles,
+              Boolean isPublishingByDirectUpdateNeeded) {
+        super(runNumber, tag, vendorDataFiles, expectedDataFiles, isPublishingByDirectUpdateNeeded);
         vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.TR, env);
         this.runner = new RunnerTr();
         this.actualDataInitializer = new ActualDataInitializerTr();
