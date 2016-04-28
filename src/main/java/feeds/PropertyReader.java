@@ -29,8 +29,7 @@ public class PropertyReader extends LoggedClass {
 
 
     public static Properties getProperties(String path){
-        Properties properties = get(path);
-        return properties;
+        return get(path);
     }
 
 

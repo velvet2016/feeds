@@ -1,7 +1,11 @@
 package feeds;
 
 
-import java.util.Properties;
+import feeds.services.DbService;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Hello world!
@@ -12,25 +16,24 @@ public class App
     public static void main( String[] args )
     {
 
-
-
-       /* File file = new TextReader().getFile("tr.properties");
-        System.out.println(file);
-
-        SuiteParser suiteParser = new SuiteParser();
-        List<RunInfo> ri = suiteParser.parse("suites/suite1.xml");
-        System.out.println(ri);*/
-        g();
+        while (true) {
+            DbService dbService = DbService.getInstance();
+            dbService.select("select id from party");
+        }
 
 
     }
-    public static void g(){
-        /*Properties commonConfig = PropertyReader.getCommonConfig();
+
+
+
+}
+ /*   public static void g(){
+        *//*Properties commonConfig = PropertyReader.getCommonConfig();
         System.out.println(commonConfig.getProperty("suite"));
-        System.out.println(commonConfig.getProperty("env"));*/
+        System.out.println(commonConfig.getProperty("env"));*//*
 
 
-        /*Parameters params = new Parameters();
+        *//*Parameters params = new Parameters();
         FileBasedConfigurationBuilder<FileBasedConfiguration> builder =
                 new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
                         .configure(params.properties()
@@ -48,6 +51,7 @@ public class App
         {
             cex.printStackTrace();
             // loading of the configuration file failed
-        }*/
+        }*//*
     }
 }
+*/

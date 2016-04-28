@@ -13,8 +13,7 @@ public class SuiteRunner {
     @Factory
     public Object[] factoryMethod()
     {
-        String suite = Config.SUITE;
-        List<RunInfo> suiteConfig = new SuiteParser().parse(suite);
+        List<RunInfo> suiteConfig = new SuiteParser().parse(Config.SUITE);
         Object[] obs = new Object[suiteConfig.size()];
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {

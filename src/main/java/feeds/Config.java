@@ -13,15 +13,14 @@ public class Config  {
 
 
     static{
-        System.out.println("\n\n");
-        System.out.println("------------------------------------------------------------");
-        System.out.println("   Common config:\n");
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("   Config:\n");
+        System.out.println("   suite:         "+ SUITE);
         System.out.println("   envProperties: "+ ENV_PROPERTIES);
-        System.out.println("   env: "+ ENV);
-        System.out.println("   dbUrl: "+DB_URL);
-        System.out.println("   dbUser: "+DB_USER);
-        System.out.println("------------------------------------------------------------");
-        System.out.println("\n\n");
+        System.out.println("   env:           "+ ENV);
+        System.out.println("   dbUrl:         "+ DB_URL);
+        System.out.println("   dbUser:        "+ DB_USER);
+        System.out.println("------------------------------------------------------------\n");
     }
 
 }
