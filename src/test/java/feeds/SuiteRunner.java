@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by linux on 23.04.16.
  */
-public class TestFactory {
+public class SuiteRunner {
     @Factory
     public Object[] factoryMethod()
     {
