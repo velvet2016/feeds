@@ -13,7 +13,7 @@ import java.util.List;
  * Created by linux on 27.04.16.
  */
 public class VendorInfoReader {
-    public static VendorInfo getVendorInfo(VendorProfile vendorProfile, String env) {
+    public static VendorInfo getVendorInfo(VendorProfile vendorProfile) {
         VendorInfo vendorInfo;
         Document doc = CommonMethods.getDocumentFromXml(vendorProfile.getXmlPropertyFileName());
         NodeList nList = doc.getElementsByTagName("vendorInfo");
@@ -23,18 +23,18 @@ public class VendorInfoReader {
                 eElement.getElementsByTagName("staticDataCode").item(0).getTextContent(),
                 eElement.getElementsByTagName("alacraMappingCode").item(0).getTextContent(),
                 eElement.getElementsByTagName("alacraMappingName").item(0).getTextContent(),
-                getMapTypeToPath(eElement, "fileType", env)
+                getMapTypeToPath(eElement, "fileType")
 
         );
         return vendorInfo;
     }
 
-    private static HashMap<String, String> getMapTypeToPath(Element eElement, String tagName, String env) {
+    private static HashMap<String, String> getMapTypeToPath(Element eElement, String tagName) {
         HashMap<String, String> map = new HashMap<>();
         NodeList caseFileNameNodeList = eElement.getElementsByTagName(tagName);
         for (int i = 0; i < caseFileNameNodeList.getLength(); i++) {
             Element item = (Element) caseFileNameNodeList.item(i);
-            map.put(item.getTextContent(), item.getAttribute("path").replaceAll("%env%",env));
+            map.put(item.getTextContent(), item.getAttribute("path").replaceAll("%env%",Config.ENV));
         }
         return map;
     }

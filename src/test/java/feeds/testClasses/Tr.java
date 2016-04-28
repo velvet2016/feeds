@@ -1,5 +1,6 @@
 package feeds.testClasses;
 
+import feeds.Config;
 import feeds.TestSorterListener;
 import feeds.VendorInfoReader;
 import feeds.enums.VendorProfile;
@@ -26,7 +27,7 @@ public class Tr extends AbstractFeedTest {
               Map<String, String> expectedDataFiles,
               Boolean isPublishingByDirectUpdateNeeded) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles, isPublishingByDirectUpdateNeeded);
-        vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.TR, env);
+        vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.TR);
         this.runner = new RunnerTr();
         this.actualDataInitializer = new ActualDataInitializerTr();
         this.testDataInitializer = new TestDataInitializerTr();

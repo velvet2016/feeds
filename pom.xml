@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <config.testSuite>suites/suite1.xml</config.testSuite>
-        <config.env>sita</config.env>
+        <config.env.properties>envProperties/deva.properties</config.env.properties>
     </properties>
 
     <build>

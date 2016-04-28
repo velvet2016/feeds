@@ -21,7 +21,6 @@ import java.util.Map;
  */
 public abstract class AbstractTest extends LoggedClass implements SimpleCheckerTestInterface {
     public AbstractTest(Integer runNumber, String tag, Map<String, String> vendorDataFiles, Map<String, String> expectedDataFiles, Boolean isPublishingByDirectUpdateNeeded) {
-        this.env=PropertyReader.getCommonConfig().getProperty("env");
         this.runNumber = runNumber;
         this.vendorDataFiles = vendorDataFiles;
         this.expectedDataFiles = expectedDataFiles;
@@ -56,7 +55,6 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
     protected Map<String, String> expectedDataFiles;
     protected int runNumber;
     protected String tag;
-    protected String env;
 
 
 

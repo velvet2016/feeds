@@ -1,5 +1,6 @@
 package feeds.testClasses;
 
+import feeds.Config;
 import feeds.TestSorterListener;
 import feeds.VendorInfoReader;
 import feeds.enums.VendorProfile;
@@ -26,7 +27,7 @@ public class Bbg extends AbstractFeedTest {
                Map<String, String> expectedDataFiles,
                Boolean isPublishingByDirectUpdateNeeded) {
         super(runNumber, tag, vendorDataFiles, expectedDataFiles, isPublishingByDirectUpdateNeeded);
-        this.vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.BBG, env);
+        this.vendorInfo = VendorInfoReader.getVendorInfo(VendorProfile.BBG);
         this.runner = new RunnerBbg();
         this.actualDataInitializer = new ActualDataInitializerBbg();
         this.testDataInitializer = new TestDataInitializerBbg();

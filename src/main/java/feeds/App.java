@@ -25,9 +25,11 @@ public class App
 
     }
     public static void g(){
-        Properties commonConfig = PropertyReader.getCommonConfig();
+        /*Properties commonConfig = PropertyReader.getCommonConfig();
         System.out.println(commonConfig.getProperty("suite"));
-        System.out.println(commonConfig.getProperty("env"));
+        System.out.println(commonConfig.getProperty("env"));*/
+
+
         /*Parameters params = new Parameters();
         FileBasedConfigurationBuilder<FileBasedConfiguration> builder =
                 new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)

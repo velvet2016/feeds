@@ -15,7 +15,7 @@ import java.util.Properties;
 public class PropertyReader extends LoggedClass {
     protected static Logger logger = Logger.getLogger(PropertyReader.class.getName());
 
-    private static Properties getProperties(String fileName) {
+    private static Properties get(String fileName) {
         Properties prop = new Properties();
         InputStream input = CommonMethods.getInputStream(fileName);
         try {
@@ -28,8 +28,8 @@ public class PropertyReader extends LoggedClass {
     }
 
 
-    public static Properties getCommonConfig(){
-        Properties properties = getProperties("common.properties");
+    public static Properties getProperties(String path){
+        Properties properties = get(path);
         return properties;
     }
 
