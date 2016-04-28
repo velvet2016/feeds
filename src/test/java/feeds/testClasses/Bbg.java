@@ -1,5 +1,7 @@
-package feeds;
+package feeds.testClasses;
 
+import feeds.TestSorterListener;
+import feeds.VendorInfoReader;
 import feeds.enums.VendorProfile;
 import feeds.runners.RunnerBbg;
 import org.testng.annotations.*;
@@ -16,7 +18,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by linux on 23.04.16.
  */
-@Listeners(TestClassesSorter.class)
+@Listeners(TestSorterListener.class)
 public class Bbg extends AbstractFeedTest {
     public Bbg(Integer runNumber,
                String tag,

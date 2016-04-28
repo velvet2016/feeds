@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by linux on 25.04.16.
  */
-public class TestClassesSorter implements IMethodInterceptor {
+public class TestSorterListener implements IMethodInterceptor {
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
         Collections.sort(list, new Comparator<IMethodInstance>() {
             @Override

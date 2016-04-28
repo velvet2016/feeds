@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <suite>
-    <runItem className="feeds.Bbg" tag="bbg1">
+    <runItem className="feeds.testClasses.Bbg" tag="bbg1">
         <vendorDataFile type="xref">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="entity">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="market">trVendorCase1.txt</vendorDataFile>
@@ -9,14 +9,14 @@
         <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
         <publishByDirectUpdate>true</publishByDirectUpdate>
     </runItem>
-    <runItem className="feeds.Tr" tag="tr1">
+    <runItem className="feeds.testClasses.Tr" tag="tr1">
         <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
         <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>
         <expectedDataFile type="ora">trVendorCase2.txt</expectedDataFile>
         <publishByDirectUpdate type="alacra">true</publishByDirectUpdate>
     </runItem>
-    <runItem className="feeds.NonFeedCheck" tag="sc1">
+    <runItem className="feeds.testClasses.NonFeedCheck" tag="sc1">
         <vendorDataFile type="cfg">trVendorCase1.txt</vendorDataFile>
         <vendorDataFile type="pfg">trVendorCase1.txt</vendorDataFile>
         <expectedDataFile type="lem">trVendorCase2.txt</expectedDataFile>

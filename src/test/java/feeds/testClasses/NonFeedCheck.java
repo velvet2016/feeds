@@ -1,5 +1,8 @@
-package feeds;
+package feeds.testClasses;
 
+import feeds.TestDataEntry;
+import feeds.TestSorterListener;
+import feeds.VendorInfo;
 import org.testng.annotations.*;
 import feeds.abstractClasses.AbstractTest;
 import feeds.actualDataInitializers.ActualDataInitializerSimpleCheck;
@@ -13,7 +16,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by linux on 23.04.16.
  */
-@Listeners(TestClassesSorter.class)
+@Listeners(TestSorterListener.class)
 public  class NonFeedCheck extends AbstractTest {
     public NonFeedCheck(Integer runNumber,
                         String tag,

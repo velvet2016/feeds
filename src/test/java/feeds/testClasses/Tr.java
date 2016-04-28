@@ -1,5 +1,7 @@
-package feeds;
+package feeds.testClasses;
 
+import feeds.TestSorterListener;
+import feeds.VendorInfoReader;
 import feeds.enums.VendorProfile;
 import org.testng.annotations.*;
 import feeds.abstractClasses.AbstractFeedTest;
@@ -15,7 +17,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by linux on 23.04.16.
  */
-@Listeners(TestClassesSorter.class)
+@Listeners(TestSorterListener.class)
 public class Tr extends AbstractFeedTest {
 
     public Tr(Integer runNumber,

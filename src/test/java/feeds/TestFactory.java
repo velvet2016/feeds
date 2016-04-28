@@ -18,7 +18,7 @@ public class TestFactory {
         Object[] obs = new Object[suiteConfig.size()];
         int runNumber = 0;
         for (RunInfo runInfo : suiteConfig) {
-            SimpleCheckerTestInterface testClassInstance = TestClassesFactory.getTestInstance(
+            SimpleCheckerTestInterface testClassInstance = InstanceFactory.getTestInstance(
                     runInfo.getClassName(),
                     runNumber,
                     runInfo.getTag(),
