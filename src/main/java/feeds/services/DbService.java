@@ -17,6 +17,7 @@ public class DbService extends LoggedClass {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     private Connection connection;
     private static Map<Class,Integer> typesMap;
+    private static int printedColumnLenght = 20;
     static
     {
         typesMap = new HashMap<>();
@@ -125,7 +126,7 @@ public class DbService extends LoggedClass {
         int displayedRowCount = rows.size() < maxNumberToShow ? rows.size() : maxNumberToShow;
         StringBuilder sb =  new StringBuilder();
         sb.append("Querying result: \nDisplaying "+displayedRowCount+" row(s) out of "+rows.size()+" rows:\n");
-        String formatPattern = "%1$15s";
+        String formatPattern = "%1$"+printedColumnLenght+"s";
         if (colNames == null || colNames.size()==0) {
             sb.append("empty result set");
             return sb.toString();
@@ -149,8 +150,9 @@ public class DbService extends LoggedClass {
     }
 
     private void addValue(StringBuilder sb, String formatPattern, String str) {
-        String formatted = String.format(formatPattern, str);
-        sb.append(formatted + ", ");
+        String s = str.length()>printedColumnLenght ? str.substring(0,printedColumnLenght-2)+"..": str;
+        String formatted = String.format(formatPattern, s );
+        sb.append(formatted+ ", ");
     }
 
     private void endLine(StringBuilder sb) {
