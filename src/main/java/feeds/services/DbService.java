@@ -16,8 +16,10 @@ public class DbService extends LoggedClass {
     private static volatile DbService instance;
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
     private Connection connection;
-    private static Map<Class,Integer> typesMap;
     private static int printedColumnLenght = 20;
+    public static final int MAX_NUMBER_TO_SHOW = 50;
+    private static Map<Class,Integer> typesMap;
+
     static
     {
         typesMap = new HashMap<>();
@@ -122,8 +124,7 @@ public class DbService extends LoggedClass {
         }
     }
     private String getPrintableString(List<Map<String, String>> rows, List<String> colNames){
-        int maxNumberToShow = 50;
-        int displayedRowCount = rows.size() < maxNumberToShow ? rows.size() : maxNumberToShow;
+        int displayedRowCount = rows.size() < MAX_NUMBER_TO_SHOW ? rows.size() : MAX_NUMBER_TO_SHOW;
         StringBuilder sb =  new StringBuilder();
         sb.append("Querying result: \nDisplaying "+displayedRowCount+" row(s) out of "+rows.size()+" rows:\n");
         String formatPattern = "%1$"+printedColumnLenght+"s";
@@ -137,7 +138,7 @@ public class DbService extends LoggedClass {
         endLine(sb);
         int i = 0;
         for (Map<String, String> row : rows) {
-            if(++i>maxNumberToShow) {
+            if(++i> MAX_NUMBER_TO_SHOW) {
                 sb.append("...\n");
                 break;
             }
@@ -150,7 +151,7 @@ public class DbService extends LoggedClass {
     }
 
     private void addValue(StringBuilder sb, String formatPattern, String str) {
-        String s = str.length()>printedColumnLenght ? str.substring(0,printedColumnLenght-2)+"..": str;
+        String s = str.length() > printedColumnLenght ? str.substring(0, printedColumnLenght-2)+"..": str;
         String formatted = String.format(formatPattern, s );
         sb.append(formatted+ ", ");
     }
@@ -184,6 +185,7 @@ public class DbService extends LoggedClass {
         }
         return sql;
     }
+
     private void printParams(List<String> keys, Map<String,Object> params){
         StringBuilder sb = new StringBuilder();
         sb.append("Params:\n");

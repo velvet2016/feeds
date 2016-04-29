@@ -25,7 +25,9 @@ public class App {
         params.put("id", 79078);
         params.put("name", "Microsoft");
         DbService dbService = DbService.getInstance();
-        dbService.select("select * from party where id =:id and name = :name", params);
+
+        dbService.select("select * from party where id =:id  \n" +
+                " and name = :name", params);
 
 /*
         Pattern pattern = Pattern.compile("(:.+?)([\\s\\)]|$)");
