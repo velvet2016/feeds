@@ -16,10 +16,8 @@ public class App
     public static void main( String[] args )
     {
 
-        while (true) {
             DbService dbService = DbService.getInstance();
             dbService.select("select id from party");
-        }
 
 
     }

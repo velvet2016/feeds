@@ -5,7 +5,9 @@ import feeds.LoggedClass;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by linux on 23.04.16.
@@ -29,32 +31,35 @@ public class DbService extends LoggedClass {
         return localInstance;
     }
 
-    public CustomResultSet select(String sql) {
+    public List<Map<String, String>> select(String sql) {
         connect();
-        ArrayList<List<String>> rows = new ArrayList<>();
+        ArrayList<Map<String, String>> resultList = new ArrayList<>();
+       // ArrayList<List<String>> rows = new ArrayList<>();
         ArrayList<String> columnNames = new ArrayList<>();
         try (Statement statement = connection.createStatement();) {
-            System.out.println(sql);
+            logger.debug("Executing query: \n"+sql);
+
             ResultSet rs = statement.executeQuery(sql);
             boolean firstRow = true;
             while (rs.next()) {
-                List<String> row = new ArrayList<>();
+                HashMap<String, String> rowMap = new HashMap<>();
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                     if (firstRow) {
                         columnNames.add(rs.getMetaData().getColumnName(i));
                     }
-                    row.add(rs.getString(i));
+                    //row.add(rs.getString(i));
+                    rowMap.put(columnNames.get(i-1),rs.getString(i));
                 }
                 firstRow = false;
-                rows.add(row);
+                resultList.add(rowMap);
             }
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e.getMessage());
         }
-        CustomResultSet resultSet = new CustomResultSet(columnNames, rows);
-        logger.debug(resultSet.toString());
-        return resultSet;
+        //CustomResultSet resultSet = new CustomResultSet(columnNames, rows);
+        logger.debug(getPrintableString(resultList, columnNames));
+        return resultList;
     }
 
 
@@ -68,6 +73,37 @@ public class DbService extends LoggedClass {
             e.printStackTrace();
             throw new RuntimeException(e.getMessage());
         }
+    }
+    private String getPrintableString(List<Map<String, String>> rows, List<String> colNames){
+        StringBuilder sb =  new StringBuilder();
+        sb.append("Result of query:\n");
+        String formatPattern = "%1$15s";
+        if (colNames == null || colNames.size()==0) {
+            sb.append("empty result set");
+            return sb.toString();
+        }
+        for (String colName : colNames) {
+            addValue(sb, formatPattern, colName);
+        }
+        endLine(sb);
+        for (Map<String, String> row : rows) {
+            for (String colName : colNames) {
+                addValue(sb, formatPattern, row.get(colName));
+            }
+            endLine(sb);
+        }
+        return sb.toString();
+    }
+
+    private void addValue(StringBuilder sb, String formatPattern, String str) {
+        String formatted = String.format(formatPattern, str);
+        sb.append(formatted + ", ");
+    }
+
+    private void endLine(StringBuilder sb) {
+        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length()-1);
+        sb.append("\n");
     }
 
     public static class CustomResultSet{
