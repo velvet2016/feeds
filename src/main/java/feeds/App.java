@@ -2,13 +2,14 @@ package feeds;
 
 
 import feeds.services.DbService;
+import feeds.services.DbServiceSpring;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,9 +17,29 @@ import java.util.regex.Pattern;
  * Hello world!
  *
  */
-public class App {
+public class App  {
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger("App");
         ArrayList<Integer> l = new ArrayList();
+        l.add(79078);
+        l.add(79079);
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("ids", l);
+        //params.put("name", "Microsoft");
+        DbServiceSpring dbService = DbServiceSpring.getInstance();
+        List<Map<String, String>> parties = dbService.getParties(params);
+        System.out.println(parties);
+        logger.trace("trace");
+        logger.debug("debug");
+        logger.info("info");
+        logger.warn("warn");
+        logger.error("error");
+        logger.fatal("fatal");
+
+
+
+
+      /*  ArrayList<Integer> l = new ArrayList();
         l.add(79078);
         l.add(79079);
         HashMap<String, Object> params = new HashMap<>();
@@ -27,7 +48,7 @@ public class App {
         DbService dbService = DbService.getInstance();
 
         dbService.select("select * from party where id =:id  \n" +
-                " and name = :name", params);
+                " and name = :name", params);*/
 
 /*
         Pattern pattern = Pattern.compile("(:.+?)([\\s\\)]|$)");

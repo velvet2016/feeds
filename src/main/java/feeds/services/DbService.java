@@ -2,7 +2,9 @@ package feeds.services;
 
 import feeds.Config;
 import feeds.LoggedClass;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
@@ -19,6 +21,11 @@ public class DbService extends LoggedClass {
     private static int printedColumnLenght = 20;
     public static final int MAX_NUMBER_TO_SHOW = 50;
     private static Map<Class,Integer> typesMap;
+
+    private DataSource dataSource;
+    private SimpleJdbcTemplate template;
+
+
 
     static
     {
@@ -117,7 +124,7 @@ public class DbService extends LoggedClass {
             if (connection != null && !connection.isClosed() && connection.isValid(0)) {
                 return;
             }
-            connection = DriverManager.getConnection(Config.DB_URL, Config.DB_USER, Config.DB_PASSWORD);
+            connection = DriverManager.getConnection(Config.DB_DBO_URL, Config.DB_DBO_USER, Config.DB_DBO_PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e.getMessage());

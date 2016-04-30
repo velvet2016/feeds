@@ -6,6 +6,10 @@
             <param name="ConversionPattern" value=" %-5p %c %x - %m%n" />
         </layout>
     </appender>
+    <logger name="org.springframework.jdbc.core">
+        <level value="trace" />
+        <appender-ref ref="CA" />
+    </logger>
     <root>
         <level value="debug" />
         <appender-ref ref="CA" />
