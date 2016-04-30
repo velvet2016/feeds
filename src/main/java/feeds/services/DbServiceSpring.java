@@ -3,6 +3,7 @@ package feeds.services;
 import feeds.Config;
 import feeds.rowMappers.GenericRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,13 @@ public class DbServiceSpring {
     private static final GenericRowMapper RM = new GenericRowMapper();
 
     public DbServiceSpring() {
-        dboTemplate = new SimpleJdbcTemplate(Config.dboDataSource);
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(Config.JDBC_DRIVER);
+        ds.setUrl(Config.DB_DBO_URL);
+        ds.setUsername(Config.DB_DBO_USER);
+        ds.setPassword(Config.DB_DBO_PASSWORD);
+        dboTemplate = new SimpleJdbcTemplate(ds);
+
         //if needed, template for another schemas can be initialized here
     }
     public static DbServiceSpring getInstance() {

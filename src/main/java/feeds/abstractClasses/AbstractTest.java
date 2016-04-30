@@ -5,10 +5,7 @@ import feeds.*;
 import feeds.interfaces.ActualDataInitializerInterface;
 import feeds.interfaces.SimpleCheckerTestInterface;
 import feeds.interfaces.TestDataInitializerInterface;
-import feeds.services.DbService;
-import feeds.services.FileService;
-import feeds.services.IdStorageService;
-import feeds.services.UnixService;
+import feeds.services.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
         this.runNumber = runNumber;
         this.vendorDataFiles = vendorDataFiles;
         this.expectedDataFiles = expectedDataFiles;
-        this.dbService = DbService.getInstance();
+        this.dbService = DbServiceSpring.getInstance();
         this.fileService = FileService.getInstance();
         this.unixService = UnixService.getInstance();
         this.idStorageService = IdStorageService.getInstance();
@@ -39,7 +36,7 @@ public abstract class AbstractTest extends LoggedClass implements SimpleCheckerT
     }
 
 
-    protected DbService dbService;
+    protected DbServiceSpring dbService;
     protected FileService fileService;
     protected UnixService unixService;
     protected IdStorageService idStorageService;
