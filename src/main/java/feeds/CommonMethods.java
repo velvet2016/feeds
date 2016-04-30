@@ -25,7 +25,7 @@ public class CommonMethods {
         }
     }
 
-    static Document getDocumentFromXml(String path) {
+    public static Document getDocumentFromXml(String path) {
         InputStream inputStream = getInputStream(path);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
