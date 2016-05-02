@@ -2,6 +2,8 @@ package feeds.services;
 
 import feeds.Config;
 import feeds.rowMappers.GenericRowMapper;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -22,7 +24,11 @@ public class DbServiceSpring {
         ds.setUrl(Config.DB_DBO_URL);
         ds.setUsername(Config.DB_DBO_USER);
         ds.setPassword(Config.DB_DBO_PASSWORD);
+        /*ApplicationContext context =
+                new ClassPathXmlApplicationContext("context.xml");
+        dboTemplate = (SimpleJdbcTemplate)context.getBean("template")*/;
         dboTemplate = new SimpleJdbcTemplate(ds);
+
 
         //if needed, template for another schemas can be initialized here
     }
@@ -40,7 +46,7 @@ public class DbServiceSpring {
     }
 
     public List<Map<String, String>> getParties(Map params){
-      return  dboTemplate.query("select * from party", RM);
+      return  dboTemplate.query("select * from party where id in (:ids)", RM, params);
     }
 
 }

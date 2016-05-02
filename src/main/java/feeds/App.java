@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
  *
  */
 public class App  {
+
     public static void main(String[] args) {
         Logger logger = Logger.getLogger("App");
         ArrayList<Integer> l = new ArrayList();
