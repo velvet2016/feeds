@@ -27,7 +27,7 @@ public class SuiteRunner extends LoggedClass {
                     );
             obs[runNumber++] = (testClassInstance instanceof FeedTestInterface) ? (FeedTestInterface) testClassInstance : testClassInstance;
         }
-        logger.debug("Actually instantiated  test clasess sequence:");
+        logger.debug("Actually instantiated test classes sequence:");
         for (Object ob : obs) {
             logger.debug(ob.getClass());
         }
