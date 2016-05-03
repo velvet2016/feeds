@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by linux on 23.04.16.
  */
-public class SuiteRunner {
+public class SuiteRunner extends LoggedClass {
     @Factory
     public Object[] factoryMethod()
     {
@@ -27,7 +27,10 @@ public class SuiteRunner {
                     );
             obs[runNumber++] = (testClassInstance instanceof FeedTestInterface) ? (FeedTestInterface) testClassInstance : testClassInstance;
         }
-
+        logger.debug("Actualy instantiated  test clasess sequence:");
+        for (Object ob : obs) {
+            logger.debug(ob.getClass());
+        }
         return obs;
     }
 }

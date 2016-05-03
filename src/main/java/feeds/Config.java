@@ -16,6 +16,7 @@ public class Config  {
     public static final String DB_DBO_URL = PropertyReader.getProperties(ENV_PROPERTIES).getProperty("db.dbo.url");
     public static final String DB_DBO_USER = PropertyReader.getProperties(ENV_PROPERTIES).getProperty("db.dbo.user");
     public static final String DB_DBO_PASSWORD = PropertyReader.getProperties(ENV_PROPERTIES).getProperty("db.dbo.password");
+    public static final String TEST_CASES_FILE_ENCODING = PropertyReader.getProperties("common.properties").getProperty("test.cases.file.encoding");
 
 
     static{
@@ -26,6 +27,10 @@ public class Config  {
         System.out.println("   env:           "+ ENV);
         System.out.println("   db_dbo_Url:    "+ DB_DBO_URL);
         System.out.println("   db_dbo_User:   "+ DB_DBO_USER);
+        System.out.println("------------------------------------------------------------\n");
+        System.out.println("------------------------------------------------------------");
+        System.out.println("   Suite to run:\n");
+        CommonMethods.printFile(SUITE,TEST_CASES_FILE_ENCODING);
         System.out.println("------------------------------------------------------------\n");
 
     }

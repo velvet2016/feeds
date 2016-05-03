@@ -1,17 +1,11 @@
 package feeds;
 
 
-import feeds.services.DbService;
-import feeds.services.DbServiceSpring;
-import org.apache.log4j.Logger;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.*;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Hello world!
@@ -20,7 +14,9 @@ import java.util.regex.Pattern;
 public class App  {
 
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger("App");
+        System.out.println();
+
+/*        Logger logger = Logger.getLogger("App");
         ArrayList<Integer> l = new ArrayList();
         l.add(79078);
         l.add(79079);
@@ -35,7 +31,7 @@ public class App  {
         logger.info("info");
         logger.warn("warn");
         logger.error("error");
-        logger.fatal("fatal");
+        logger.fatal("fatal");*/
 
 
 
